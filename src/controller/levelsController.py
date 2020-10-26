@@ -5,6 +5,7 @@ class LevelsController:
     def __init__(self, parent, user):
         self.parent = parent
         self.user = user
+        self.lvl = ""
 
     def displayLvl(self,n):
         if n == 1:
@@ -16,7 +17,8 @@ class LevelsController:
 
     def clearLvl(self):
         try:
-            self.lvl.delete('all')
-            self.lvl.destroy()
-        except:
+            self.lvl.canvas.delete('all')
+            self.lvl.canvas.destroy()
+        except Exception as e:
+            print(e)
             pass
