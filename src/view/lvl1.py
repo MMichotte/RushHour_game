@@ -18,5 +18,5 @@ class Lvl1:
         self.title = self.canvas.create_text(self.gameW/2, 100, text="LvL 1")
         self.score = self.canvas.create_text(self.gameW/2, 120, text=str(self.user.getScore()))
         
-        self.block_1_View = BlockView(self.canvas,Block(size=2,color="blue",orientation="H",position=[2,3]))
-        self.block_2_View = BlockView(self.canvas,Block(size=3,color="red",orientation="V",position=[3,4]))
+        self.block_1 = Block(self.canvas,size=2,orientation="H",position=[2,3],color="blue")
+        self.block_2= Block(self.canvas,size=3,orientation="V",position=[3,4],color="red")

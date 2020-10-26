@@ -1,25 +1,17 @@
-
+from view.blockView import BlockView
+from controller.blockController import BlockController
 
 blocks = []
 
-def addBlock(block):
-    global blocks
-    blocks.append(block)
-
-def purgeBlocks():
-    global blocks
-    blocks = []
-
-def getBlocks():
-    return blocks
-
 class Block:
-    def __init__(self, size, color, orientation, position):
+    def __init__(self, parent, size, orientation, position, color):
         self.defaultSize = 40
+
+        self.parent = parent
         self.size = size
-        self.color = color
         self.orientation = orientation
         self.initialPosition = [p * self.defaultSize for p in position]
+        self.color = color
 
         if self.orientation == "H":
             self.width = self.initialPosition[0] + self.size * self.defaultSize
@@ -27,3 +19,20 @@ class Block:
         else:
             self.height = self.initialPosition[1] + self.size * self.defaultSize
             self.width = self.initialPosition[0] + self.defaultSize
+
+        self.addBlock(self)
+        self.view = BlockView(self.parent, block=self).view
+        self.controller = BlockController(self.parent, block=self)
+        
+
+    def addBlock(self,block):
+        global blocks
+        blocks.append(block)
+
+    def purgeBlocks(self):
+        global blocks
+        blocks = []
+
+    def getBlocks(self):
+        global blocks
+        return blocks
