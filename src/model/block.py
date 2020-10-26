@@ -4,13 +4,14 @@ from controller.blockController import BlockController
 blocks = []
 
 class Block:
-    def __init__(self, parent, width, size, orientation, position, color):
+    def __init__(self, parent, width, size, orientation, position, color, isMain=False):
         self.defaultSize = width
         self.parent = parent
         self.size = size
         self.orientation = orientation
         self.initialPosition = [(p * self.defaultSize) for p in position]
         self.color = color
+        self.isMain = isMain
 
         if self.orientation == "H":
             self.width = self.initialPosition[0] + self.size * self.defaultSize

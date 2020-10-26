@@ -30,7 +30,7 @@ class Lvl1:
             self.canvas.create_line(0,self.borderWidth+l*self.blockWidth,self.gameW,self.borderWidth+l*self.blockWidth)
             self.canvas.create_line(self.borderWidth+l*self.blockWidth,0,self.borderWidth+l*self.blockWidth,self.gameW)
 
-        self.block_0 = Block(self.canvas,width=self.blockWidth,size=2,orientation="H",position=[3,3],color="red")
+        self.block_0 = Block(self.canvas,width=self.blockWidth,size=2,orientation="H",position=[3,3],color="red", isMain=True)
         self.block_2 = Block(self.canvas,width=self.blockWidth,size=3,orientation="V",position=[1,2],color="blue")
         self.block_3 = Block(self.canvas,width=self.blockWidth,size=3,orientation="V",position=[6,2],color="orange")
         self.block_4 = Block(self.canvas,width=self.blockWidth,size=3,orientation="H",position=[4,0],color="green")

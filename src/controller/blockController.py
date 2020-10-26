@@ -1,3 +1,5 @@
+from view.winBanner import WinBanner
+from time import sleep
 
 class BlockController:
 
@@ -21,7 +23,7 @@ class BlockController:
         self.isActivated = False
 
     def move(self, event):
-        if self.isActivated:
+        if self.isActivated and not self.checkWin():
             authorizedMovements = self.checkColision()
             dx = event.x - self.currentX 
             dy = event.y - self.currentY
@@ -114,3 +116,13 @@ class BlockController:
                             authorizedMovements = "T"
         
         return authorizedMovements
+
+
+    def checkWin(self):
+        if self.block.isMain:
+            thisCoords_RX = self.parent.bbox(self.blockView)[2]
+            border_RX = self.parent.coords(self.parent.find_withtag("border")[0])[0]
+            if thisCoords_RX > border_RX:
+                WinBanner(self.parent)
+                return True
+        return False
