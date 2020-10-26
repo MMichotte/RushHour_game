@@ -10,10 +10,10 @@ class LevelsController:
     def displayLvl(self,n):
         if n == 1:
             self.clearLvl()
-            self.lvl = Lvl1(self.parent, self.user)
+            self.lvl = Lvl1(self.parent)
         if n == 2:
             self.clearLvl()
-            self.lvl = Lvl2(self.parent, self.user)
+            self.lvl = Lvl2(self.parent)
 
     def clearLvl(self):
         try:

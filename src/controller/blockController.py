@@ -46,29 +46,29 @@ class BlockController:
         authorizedMovements = ""
         thisCoords = self.parent.bbox(self.blockView)
         if self.block.orientation == "H":
-            thisCoordsA = [thisCoords[0],thisCoords[1]+(thisCoords[3]-thisCoords[1])/2] #milieu gauche
-            thisCoordsB = [thisCoords[2],thisCoords[1]+(thisCoords[3]-thisCoords[1])/2] #milieu droite
+            thisCoordsA = [int(thisCoords[0]),int(thisCoords[1]+(thisCoords[3]-thisCoords[1])/2)] #milieu gauche
+            thisCoordsB = [int(thisCoords[2]),int(thisCoords[1]+(thisCoords[3]-thisCoords[1])/2)] #milieu droite
             authorizedMovements = "LR"
             for b in self.block.getBlocks():
-                if self.blockView != b.view:
+                if self.block!= b:
                     otherCoords = self.parent.bbox(b.view)
-                    if thisCoordsA[1] in range(otherCoords[1],otherCoords[3]):
-                        if thisCoordsA[0] in range(otherCoords[0],otherCoords[2]):
+                    if thisCoordsA[1] in range(int(otherCoords[1]),int(otherCoords[3])):
+                        if thisCoordsA[0] in range(int(otherCoords[0]),int(otherCoords[2])):
                             authorizedMovements = "L"
-                        if thisCoordsB[0] in range(otherCoords[0],otherCoords[2]):
+                        if thisCoordsB[0] in range(int(otherCoords[0]),int(otherCoords[2])):
                             authorizedMovements = "R"
 
         else:
-            thisCoordsA = [thisCoords[0] + (thisCoords[2]-thisCoords[0])/2, thisCoords[1]] #milieu haut
-            thisCoordsB = [thisCoords[0] + (thisCoords[2]-thisCoords[0])/2, thisCoords[3]] #milieu bas
+            thisCoordsA = [int(thisCoords[0] + (thisCoords[2]-thisCoords[0])/2), int(thisCoords[1])] #milieu haut
+            thisCoordsB = [int(thisCoords[0] + (thisCoords[2]-thisCoords[0])/2), int(thisCoords[3])] #milieu bas
             authorizedMovements = "TB"
             for b in self.block.getBlocks():
-                if self.blockView != b.view:
+                if self.block != b:
                     otherCoords = self.parent.bbox(b.view)
-                    if thisCoordsA[0] in range(otherCoords[0],otherCoords[2]):
-                        if thisCoordsA[1] in range(otherCoords[1],otherCoords[3]):
+                    if int(thisCoordsA[0]) in range(int(otherCoords[0]),int(otherCoords[2])):
+                        if thisCoordsA[1] in range(int(otherCoords[1]),int(otherCoords[3])):
                             authorizedMovements = "B"
-                        if thisCoordsB[1] in range(otherCoords[1],otherCoords[3]):
+                        if thisCoordsB[1] in range(int(otherCoords[1]),int(otherCoords[3])):
                             authorizedMovements = "T"
         
         return authorizedMovements
