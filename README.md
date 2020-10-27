@@ -10,7 +10,7 @@ A Quickly made **Rush Hour 🚗** game in `python` to present the general idea a
 ### Lvl 1 
 ![lvl1](img/Lvl1.png)
 
-### Home 
+### Lvl 2 
 ![lvl2](img/Lvl2.png)
 
 ## ToDo 
