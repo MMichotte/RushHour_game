@@ -29,10 +29,10 @@ class Block:
         global blocks
         blocks.append(block)
 
-    def purgeBlocks(self):
-        global blocks
-        blocks = []
-
     def getBlocks(self):
         global blocks
         return blocks
+
+def purgeBlocks():
+    global blocks
+    blocks = []

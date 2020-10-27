@@ -1,6 +1,7 @@
 from tkinter import *
 from model.user import *
 import controller.levelsController
+import model.block
 
 class WinBanner:
     def __init__(self, parent):
@@ -24,6 +25,7 @@ class WinBanner:
 
     def startNextLvl(self):
         nextLvl()
+        model.block.purgeBlocks()
         controller.levelsController.displayLvl(getCurrentLvl())
 
         #self.score = self.parent.create_text(
