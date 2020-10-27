@@ -3,10 +3,10 @@ from model.block import Block
 
 class Lvl1:
     def __init__(self, parent):
-
-        parent.update()
-        self.parentW = parent.winfo_width()
-        self.parentH = parent.winfo_height()-50
+        self.parent = parent
+        self.parent.update()
+        self.parentW = self.parent.winfo_width()
+        self.parentH = self.parent.winfo_height()-50
         self.gameW = 450
         self.gameH = self.gameW
         self.borderWidth = 5
@@ -15,7 +15,7 @@ class Lvl1:
         self.numberOfLines= 6
         self.blockWidth = self.gameInteriorSize/self.numberOfLines
     
-        self.canvas = Canvas(parent, width=self.gameW, height=self.gameH, bg="yellow")
+        self.canvas = Canvas(self.parent, width=self.gameW, height=self.gameH, bg="yellow")
         self.canvas.place(anchor=CENTER,x=self.parentW/2,y=self.parentH/2)
 
         self.boder = self.canvas.create_line(

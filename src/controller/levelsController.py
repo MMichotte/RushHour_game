@@ -1,24 +1,25 @@
 from view.lvl1 import Lvl1
 from view.lvl2 import Lvl2
 
-class LevelsController:
-    def __init__(self, parent, user):
-        self.parent = parent
-        self.user = user
-        self.lvl = ""
+lvl = None
+parent = None
 
-    def displayLvl(self,n):
-        if n == 1:
-            self.clearLvl()
-            self.lvl = Lvl1(self.parent)
-        if n == 2:
-            self.clearLvl()
-            self.lvl = Lvl2(self.parent)
+def setParent(p):
+    global parent
+    parent = p
 
-    def clearLvl(self):
-        try:
-            self.lvl.canvas.delete('all')
-            self.lvl.canvas.destroy()
-        except Exception as e:
-            print(e)
-            pass
+def displayLvl(n):
+    if n == 1:
+        clearLvl()
+        lvl = Lvl1(parent)
+    if n == 2:
+        clearLvl()
+        lvl = Lvl2(parent)
+
+def clearLvl():
+    try:
+        lvl.canvas.delete('all')
+        lvl.canvas.destroy()
+    except Exception as e:
+        #print(e)
+        pass

@@ -1,5 +1,4 @@
 from view.winBanner import WinBanner
-from time import sleep
 
 class BlockController:
 
@@ -15,6 +14,7 @@ class BlockController:
         self.currentXMovement = 0
         self.currentYMovement = 0
         self.isActivated = False
+        self.hasWon = False
     
     def activate(self, event):
         self.currentX = event.x
@@ -22,13 +22,17 @@ class BlockController:
         self.isActivated = True
 
     def de_activate(self, event):
-        self.snapPosition(self.blockView,self.currentXMovement, self.currentYMovement)
+        self.checkWin()
+        if (self.hasWon):
+            self.snapPosition(self.blockView,1000,0)
+        else:   
+            self.snapPosition(self.blockView,self.currentXMovement, self.currentYMovement)
         self.currentXMovement = 0
         self.currentYMovement = 0
         self.isActivated = False
 
     def move(self, event):
-        if self.isActivated and not self.checkWin():
+        if self.isActivated and not self.hasWon:
             authorizedMovements = self.checkColision()
             dx = event.x - self.currentX 
             dy = event.y - self.currentY
@@ -159,5 +163,4 @@ class BlockController:
             border_RX = self.parent.coords(self.parent.find_withtag("border")[0])[0]
             if thisCoords_RX > border_RX:
                 WinBanner(self.parent)
-                return True
-        return False
+                self.hasWon = True
