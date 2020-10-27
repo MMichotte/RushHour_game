@@ -12,6 +12,8 @@ class BlockController:
         self.parent.tag_bind(self.blockView, "<B1-Motion>", self.move)
         self.currentX = 0
         self.currentY = 0
+        self.currentXMovement = 0
+        self.currentYMovement = 0
         self.isActivated = False
     
     def activate(self, event):
@@ -20,6 +22,9 @@ class BlockController:
         self.isActivated = True
 
     def de_activate(self, event):
+        self.snapPosition(self.blockView,self.currentXMovement, self.currentYMovement)
+        self.currentXMovement = 0
+        self.currentYMovement = 0
         self.isActivated = False
 
     def move(self, event):
@@ -35,6 +40,8 @@ class BlockController:
                         pass
                     else:
                         self.parent.move(self.blockView, dx, 0)
+                        self.currentXMovement += dx
+                        
                 else:  
                     if dx < 0 and "R" not in authorizedMovements:
                         pass
@@ -42,6 +49,8 @@ class BlockController:
                         pass
                     else:
                         self.parent.move(self.blockView, dx, 0)
+                        self.currentXMovement += dx
+
             else:
                 if "X" in authorizedMovements:
                     if dy > 0 and "T" not in authorizedMovements:
@@ -50,6 +59,7 @@ class BlockController:
                         pass
                     else:
                         self.parent.move(self.blockView, 0, dy)
+                        self.currentYMovement += dy
                 else:
                     if dy < 0 and "T" not in authorizedMovements:
                         pass
@@ -57,6 +67,8 @@ class BlockController:
                         pass
                     else:
                         self.parent.move(self.blockView, 0, dy)
+                        self.currentYMovement += dy
+
             self.currentX = event.x
             self.currentY = event.y
 
@@ -117,6 +129,29 @@ class BlockController:
         
         return authorizedMovements
 
+    def snapPosition(self,blockView,dx,dy):
+        if(dx != 0):
+            if(dx > 0 and dx > self.block.defaultSize/2):
+                factor = abs(int(dx/self.block.defaultSize))
+                factor = factor -1 if(factor > 0) else 0 
+                self.parent.move(blockView,self.block.defaultSize-dx+factor*self.block.defaultSize,0)
+            elif(dx < 0 and dx < -self.block.defaultSize/2):
+                factor = abs(int(dx/self.block.defaultSize))
+                factor = factor -1 if(factor > 0) else 0 
+                self.parent.move(blockView,-self.block.defaultSize-dx-factor*self.block.defaultSize,0)
+            else:
+                self.parent.move(blockView,-dx,0)
+        elif(dy != 0):
+            if(dy > 0 and dy > self.block.defaultSize/2):
+                factor = abs(int(dy/self.block.defaultSize))
+                factor = factor -1 if(factor > 0) else 0 
+                self.parent.move(blockView,0,self.block.defaultSize-dy+factor*self.block.defaultSize)
+            elif(dy < 0 and dy < -self.block.defaultSize/2):
+                factor = abs(int(dy/self.block.defaultSize))
+                factor = factor -1 if(factor > 0) else 0 
+                self.parent.move(blockView,0,-self.block.defaultSize-dy-factor*self.block.defaultSize)
+            else:
+                self.parent.move(blockView,0,-dy)
 
     def checkWin(self):
         if self.block.isMain:

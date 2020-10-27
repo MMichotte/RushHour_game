@@ -18,6 +18,7 @@ if __name__ == "__main__":
     height = 600
     size = ""+ str(width) + "x" + str(height)
     root = Tk()
+    root.title("Rush Hour")
     root.geometry(size)
     root.resizable(0, 0)
     MainApplication(root)
