@@ -1,5 +1,5 @@
-from view.lvl1 import Lvl1
-from view.lvl2 import Lvl2
+from view.levels.lvl1 import Lvl1
+from view.levels.lvl2 import Lvl2
 
 lvl = None
 parent = None
