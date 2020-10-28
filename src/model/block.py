@@ -4,9 +4,9 @@ from controller.blockController import BlockController
 blocks = []
 
 class Block:
-    def __init__(self, parent, width, size, orientation, position, color, isMain=False):
-        self.defaultSize = width
-        self.parent = parent
+    def __init__(self, baseSettings, size, orientation, position, color, isMain=False):
+        self.defaultSize = baseSettings[1] #width
+        self.parent = baseSettings[0] #parent
         self.size = size
         self.orientation = orientation
         self.initialPosition = [(p * self.defaultSize) for p in position]
