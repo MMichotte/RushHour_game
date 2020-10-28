@@ -4,14 +4,8 @@ A Quickly made **Rush Hour 🚗** game in `python` to present the general idea a
 
 ## Screen captures :
 
-### Home 
-![home](img/home.png)
-
-### Lvl 1 
-![lvl1](img/Lvl1.png)
-
-### Home 
-![lvl2](img/Lvl2.png)
+### Example 
+![game](img/rushHour.gif)
 
 ## ToDo 
 - [X] Basic MVC architecture setup
@@ -26,5 +20,10 @@ A Quickly made **Rush Hour 🚗** game in `python` to present the general idea a
     - [X] lvl 1 view
     - [X] lvl 2 view
     - [X] common 'won' view 
+- [ ] additional Features
+  - [ ] Level indicator
+  - [ ] Timer for each level
+  - [ ] Save score 
+  - [ ] Load user (check for unicity)
 
 > total hours spent : ± 13h 
