@@ -4,11 +4,12 @@ from controller.levelsController import displayLvl, setParent
 
 class MainApplication:
     def __init__(self, parent):
-        parent.update()
-        self.parentW = parent.winfo_width()
-        self.parentH = parent.winfo_height()
+        self.parent = parent
+        self.parent.update()
+        self.parentW = self.parent.winfo_width()
+        self.parentH = self.parent.winfo_height()
 
-        self.canvas = Canvas(parent, width=self.parentW, height=self.parentH)
+        self.canvas = Canvas(self.parent, width=self.parentW, height=self.parentH)
         self.canvas.place(anchor=CENTER,x=self.parentW/2,y=self.parentH/2)
 
         self.Title = self.canvas.create_text(self.parentW/2,self.parentH/2-150,text="Rush Hour", font=("Purisa", 65), fill="green")
@@ -27,7 +28,7 @@ class MainApplication:
         if (usName != ""):
             self.user = User(usName)
             nextLvl()
-            setParent(self.canvas)
+            setParent(self.canvas,self.parent)
             displayLvl(getCurrentLvl())
             
             

@@ -11,7 +11,7 @@ class Lvl2:
         self.blockBaseSettings = [self.canvas,self.blockWidth]
 
         self.block_0 = Block(self.blockBaseSettings,size=2,orientation="H",position=[1,2],color="red", isMain=True)
-        self.block_2 = Block(self.blockBaseSettings,size=3,orientation="H",position=[3,0],color="yellow")
+        self.block_2 = Block(self.blockBaseSettings,size=3,orientation="H",position=[3,0],color="maroon1")
         self.block_3 = Block(self.blockBaseSettings,size=2,orientation="V",position=[2,0],color="green")
         self.block_4 = Block(self.blockBaseSettings,size=2,orientation="V",position=[0,1],color="grey")
         self.block_5 = Block(self.blockBaseSettings,size=2,orientation="H",position=[4,1],color="lightBlue")

@@ -2,11 +2,14 @@ from view.levels.lvl1 import Lvl1
 from view.levels.lvl2 import Lvl2
 
 lvl = None
+mainParent = None
 parent = None
 
-def setParent(p):
-    global parent
+
+def setParent(p,mp):
+    global parent, mainParent
     parent = p
+    mainParent = mainParent
 
 def displayLvl(n):
     if n == 1:
@@ -23,3 +26,4 @@ def clearLvl():
     except Exception as e:
         #print(e)
         pass
+
