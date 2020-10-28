@@ -1,14 +1,14 @@
 # Rush Hour Game
 
-A Quickly made **Rush Hour 🚗** game in `python` to present the general idea and implementation of a `MVC` architecture. 
+A quickly made **Rush Hour 🚗** game in `python` to present the general idea and implementation of a `MVC` architecture. 
 
-## Screen captures :
-
-### Example 
 ![game](img/rushHour.gif)
 
+## Downloads 
+- <a href="release/RushHour.zip" download>OSX</a>
+
 ## ToDo 
-- [X] Basic MVC architecture setup
+- **Basic MVC architecture setup**
   - [X] **models** folder
     - [x] user
     - [X] block
@@ -20,13 +20,15 @@ A Quickly made **Rush Hour 🚗** game in `python` to present the general idea a
     - [X] lvl 1 view
     - [X] lvl 2 view
     - [X] common 'won' view 
-- [ ] additional Features
+- **Additional Features**
   - [ ] Reset level
   - [ ] Level indicator
   - [ ] Timer for each level
   - [ ] Save score 
   - [ ] Load user (check for unicity)
   - [ ] Add a few more levels
-- [ ] Create executables for OsX and Windows
+- **Create executables**
+  - [X] OsX 
+  - [ ] Windows
 
 > total hours spent : ± 13h 
