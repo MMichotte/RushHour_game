@@ -26,5 +26,7 @@ A Quickly made **Rush Hour 🚗** game in `python` to present the general idea a
   - [ ] Timer for each level
   - [ ] Save score 
   - [ ] Load user (check for unicity)
+  - [ ] Add a few more levels
+- [ ] Create executables for OsX and Windows
 
 > total hours spent : ± 13h 
