@@ -21,6 +21,7 @@ A Quickly made **Rush Hour 🚗** game in `python` to present the general idea a
     - [X] lvl 2 view
     - [X] common 'won' view 
 - [ ] additional Features
+  - [ ] Reset level
   - [ ] Level indicator
   - [ ] Timer for each level
   - [ ] Save score 
