@@ -11,7 +11,8 @@ class BlockView:
             self.blockModel.initialPosition[1] +10,
             self.blockModel.width,
             self.blockModel.height,
-            fill=self.blockModel.color
+            fill=self.blockModel.color,
+            width=2
         )
 
     
