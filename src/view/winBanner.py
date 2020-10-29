@@ -2,9 +2,11 @@ from tkinter import *
 from model.user import *
 import controller.levelsController
 import model.block
+import view.levelConstructor
 
 class WinBanner:
     def __init__(self, parent):
+        view.levelConstructor.stopTimer()
         self.parent = parent
         self.parent.update()
         self.bannerW = parent.winfo_width()-100
@@ -24,7 +26,7 @@ class WinBanner:
             width=self.bannerW,
             fill="red",
             font="Times 40 bold",
-            text="YOU WON"
+            text="Well Done"
             )
         self.nextLvlBtn = Button(self.parent, text ="NEXT", font=("Purisa", 20), width=10,command = lambda: self.startNextLvl())
         self.nextLvlBtn.place(anchor=CENTER,x=self.parent.winfo_width()/2,y=self.parent.winfo_height()/2+50)

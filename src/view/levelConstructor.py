@@ -1,9 +1,14 @@
 from tkinter import *
 from controller.timer import Timer
+import model.block
+
+timer = None
 
 class LevelConstructor:
 
     def __init__(self, parent, lines, lvl ):
+        global timer
+
         self.parent = parent
         self.numberOfLines = lines
         self.currentLvl = lvl
@@ -38,6 +43,8 @@ class LevelConstructor:
         self.statusBar = Canvas(self.parent, width=self.gameW, height=70, bg="white")
         self.statusBar.place(anchor=CENTER,x=self.parentW/2,y=self.parentH-10)
 
+        self.resetBtn = Button(self.statusBar, text ="RESET", font=("Purisa", 20), width=10, command = model.block.resetPositions)
+        self.resetBtn.place(anchor=CENTER,x=self.gameW/2,y=35)
         
         self.timerIndicator = self.statusBar.create_text(
             self.gameW-50,
@@ -55,17 +62,18 @@ class LevelConstructor:
             text="Lvl : " + str(self.currentLvl)
             )
 
-        self.timer = Timer(self.statusBar,self.timerIndicator)
-        self.timer.startTimer()
+        timer = Timer(self.statusBar,self.timerIndicator)
+        timer.startTimer()
 
         self.canvas.bind("<Destroy>", lambda event : self.onDestroy())
 
     def onDestroy(self):
+        global timer
         try:
             self.statusBar.destroy()
-            self.timer.stopTimer()
+            timer.stopTimer()
         except Exception as e:
-            print(e)
+            #print(e)
             pass
 
     def getCanvas(self):
@@ -73,3 +81,11 @@ class LevelConstructor:
     
     def getBlockWidth(self):
         return self.blockWidth
+
+def stopTimer():
+    global timer
+    try:
+        timer.stopTimer()
+    except Exception as e:
+        #print(e)
+        pass

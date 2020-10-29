@@ -22,9 +22,9 @@ A quickly made **Rush Hour 🚗** game in `python` to present the general idea a
     - [X] common 'won' view 
 - **Additional Features**
   - [X] Level indicator
-  - [ ] Timer for each level
-  - [ ] Reset level
-  - [ ] Save score 
+  - [X] Timer for each level
+  - [X] Reset level
+  - [X] Save score 
   - [ ] Load user (check for unicity)
   - [ ] Add a few more levels
 - **Create executables**
