@@ -1,4 +1,5 @@
 from apscheduler.schedulers.background import BackgroundScheduler
+import model.user
 
 class Timer:
     def __init__(self, fieldCanvas, field):
@@ -24,6 +25,7 @@ class Timer:
         
     def stopTimer(self):
         try:
+            model.user.setScore(self.getTimer())
             self.sched.shutdown(wait=False)
         except Exception as e:
             #print(e)
