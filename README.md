@@ -31,4 +31,4 @@ A quickly made **Rush Hour 🚗** game in `python` to present the general idea a
   - [X] OsX 
   - [ ] Windows
 
-> total hours spent : ± 13h 
+> total hours spent : ±20h 
