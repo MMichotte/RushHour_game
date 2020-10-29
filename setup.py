@@ -2,7 +2,9 @@ from setuptools import setup
 
 APP = ['src/main.py']
 DATA_FILES = []
-OPTIONS = {}
+OPTIONS = {
+    'iconfile':'img/rushHour.icns',
+}
 
 setup(
     app=APP,
