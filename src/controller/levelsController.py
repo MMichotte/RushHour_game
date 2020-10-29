@@ -2,16 +2,16 @@ from view.levels.lvl1 import Lvl1
 from view.levels.lvl2 import Lvl2
 
 lvl = None
-mainParent = None
 parent = None
 
 
-def setParent(p,mp):
-    global parent, mainParent
+def setParent(p):
+    global parent
     parent = p
-    mainParent = mainParent
+
 
 def displayLvl(n):
+    global lvl
     if n == 1:
         clearLvl()
         lvl = Lvl1(parent)
@@ -20,6 +20,7 @@ def displayLvl(n):
         lvl = Lvl2(parent)
 
 def clearLvl():
+    global lvl
     try:
         lvl.canvas.delete('all')
         lvl.canvas.destroy()

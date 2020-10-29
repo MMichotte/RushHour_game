@@ -29,17 +29,7 @@ class WinBanner:
         self.nextLvlBtn = Button(self.parent, text ="NEXT", font=("Purisa", 20), width=10,command = lambda: self.startNextLvl())
         self.nextLvlBtn.place(anchor=CENTER,x=self.parent.winfo_width()/2,y=self.parent.winfo_height()/2+50)
 
-
     def startNextLvl(self):
         nextLvl()
         model.block.purgeBlocks()
         controller.levelsController.displayLvl(getCurrentLvl())
-
-        #self.score = self.parent.create_text(
-        #    self.parent.winfo_width()/2,
-        #    self.parent.winfo_height()/2+40,
-        #    width=self.bannerW,
-        #    fill="red",
-        #    font="Times 40 bold",
-        #    text="Score :" + "TODO"
-        #    )

@@ -4,7 +4,7 @@ from view.levelConstructor import LevelConstructor
 
 class Lvl2:
     def __init__(self, parent):
-        self.baseLvl = LevelConstructor(parent,6)
+        self.baseLvl = LevelConstructor(parent,6,2)
         self.canvas = self.baseLvl.getCanvas()
         self.blockWidth = self.baseLvl.getBlockWidth()
 

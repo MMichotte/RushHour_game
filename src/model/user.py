@@ -5,7 +5,7 @@ class User:
     def __init__(self, name):
         global user
         self.name = name
-        self.score = 2000
+        self.score = 0
         self.currentLvl = 0
         user = self
 

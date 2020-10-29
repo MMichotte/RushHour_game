@@ -20,10 +20,10 @@ A quickly made **Rush Hour 🚗** game in `python` to present the general idea a
     - [X] lvl 1 view
     - [X] lvl 2 view
     - [X] common 'won' view 
-- **Additional Features**
-  - [ ] Reset level
-  - [ ] Level indicator
+- **Additional Features*
+  - [X] Level indicator
   - [ ] Timer for each level
+  - [ ] Reset level
   - [ ] Save score 
   - [ ] Load user (check for unicity)
   - [ ] Add a few more levels

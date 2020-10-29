@@ -28,12 +28,13 @@ class MainApplication:
         if (usName != ""):
             self.user = User(usName)
             nextLvl()
-            setParent(self.canvas,self.parent)
+            setParent(self.canvas)
             displayLvl(getCurrentLvl())
             
             
 
-
+def on_closing():
+    root.destroy()
 
 
 if __name__ == "__main__":
@@ -45,4 +46,6 @@ if __name__ == "__main__":
     root.geometry(size)
     root.resizable(0, 0)
     MainApplication(root)
+    root.protocol("WM_DELETE_WINDOW", on_closing)
     root.mainloop()
+    
