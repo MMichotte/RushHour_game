@@ -23,13 +23,17 @@ jobs:
           pip3 install -r requirements.txt
       - name: build
         run: python3 setup.py py2app  
+      - name: zip 
+        run: |
+          cd dist/
+          zip -r RushHour.zip Rush-Hour.app
 
       - name: Release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: dist/Rush-Hour
-          asset_name: Rush-Hour
+          file: dist/Rush-Hour.zip
+          asset_name: Rush-Hour.zip
           tag: ${{ github.ref }}
           overwrite: true
           body: "Testing automatic release"
