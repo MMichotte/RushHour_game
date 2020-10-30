@@ -21,6 +21,7 @@ jobs:
             Avenv: venv/Scripts/activate
             compiler: py2exe
             compile: python WIN_setup.py py2exe
+            compress: tar.exe -cf RushHour.zip 
 
           - os: macos-latest
             file_name: Rush-Hour.app
@@ -30,6 +31,7 @@ jobs:
             Avenv: source venv/bin/activate
             compiler: py2app
             compile: python3 OSX_setup.py py2app
+            compress: zip -r RushHour.zip 
 
     steps:
       - uses: actions/checkout@v1
@@ -48,7 +50,7 @@ jobs:
       - name: zip 
         run: |
           cd dist/
-          zip -r RushHour.zip ${{ matrix.file_name }}
+          ${{ matrix.compress }} ${{ matrix.file_name }}
 
       - name: Release
         uses: svenstaro/upload-release-action@v2
