@@ -7,8 +7,24 @@ on:
       - 'v*'
 
 jobs:
-  publish:
-    runs-on: 'macos-latest'
+    name: Publish for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            file_name: Rush-Hour.exe
+            artifact_name: RushHour.zip
+            asset_name: RushHour-windows-amd64
+            venv: venv/Scripts/activate
+            compile: python3 WIN_setup.py py2exe
+
+          - os: macos-latest
+            file_name: Rush-Hour.app
+            artifact_name: RushHour.zip
+            asset_name: RushHour-macos-amd64
+            venv: source venv/bin/activate
+            compile: python3 OSX_setup.py py2exe
 
     steps:
       - uses: actions/checkout@v1
@@ -16,25 +32,22 @@ jobs:
       - name: create venv & activate
         run: |
           python3 -m venv venv
-          source venv/bin/activate
+          ${{ matrix.venv }}
       - name: install packagaes
         run: |
           pip3 install --upgrade pip
           pip3 install -r requirements.txt
       - name: build
-        run: python3 setup.py py2app  
+        run: ${{ matrix.compile }}
       - name: zip 
         run: |
           cd dist/
-          zip -r RushHour.zip Rush-Hour.app
+          zip -r RushHour.zip ${{ matrix.file_name }}
 
       - name: Release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: dist/RushHour.zip
-          asset_name: RushHour.zip
+          file: dist/${{ matrix.artifact_name }}
+          asset_name: ${{ matrix.asset_name }}
           tag: ${{ github.ref }}
-          overwrite: true
-          body: "Testing automatic release"
-

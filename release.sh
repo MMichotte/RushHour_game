@@ -11,7 +11,7 @@ esac
 
 if [[ ${machine} == "Mac" ]]
 then
-    python3 setup.py py2app  
+    python3 OSX_setup.py py2app  
     rm -rf build && rm -rf .eggs
     cd dist && zip -r RushHour.zip Rush-Hour.app
     cd .. && rm -rf dist/Rush-Hour.app
