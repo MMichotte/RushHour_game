@@ -17,14 +17,16 @@ jobs:
             file_name: Rush-Hour.exe
             artifact_name: RushHour.zip
             asset_name: RushHour-windows-amd64
-            venv: venv/Scripts/activate
+            venv: python -m venv venv
+            Avenv: venv/Scripts/activate
             compile: python3 WIN_setup.py py2exe
 
           - os: macos-latest
             file_name: Rush-Hour.app
             artifact_name: RushHour.zip
             asset_name: RushHour-macos-amd64
-            venv: source venv/bin/activate
+            venv: python3 -m venv venv
+            Avenv: source venv/bin/activate
             compile: python3 OSX_setup.py py2exe
 
     steps:
@@ -32,8 +34,8 @@ jobs:
 
       - name: create venv & activate
         run: |
-          python3 -m venv venv
           ${{ matrix.venv }}
+          ${{ matrix.Avenv }}
       - name: install packagaes
         run: |
           pip3 install --upgrade pip
