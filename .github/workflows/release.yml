@@ -32,8 +32,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: dist/Rush-Hour.zip
-          asset_name: Rush-Hour.zip
+          file: dist/RushHour.zip
+          asset_name: RushHour.zip
           tag: ${{ github.ref }}
           overwrite: true
           body: "Testing automatic release"
