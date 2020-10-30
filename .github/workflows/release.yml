@@ -27,7 +27,7 @@ jobs:
             asset_name: RushHour-macos-amd64
             venv: python3 -m venv venv
             Avenv: source venv/bin/activate
-            compile: python3 OSX_setup.py py2exe
+            compile: python3 OSX_setup.py py2app
 
     steps:
       - uses: actions/checkout@v1
