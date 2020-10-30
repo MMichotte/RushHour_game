@@ -2,7 +2,7 @@ name: release
 on: 
   push:
     branches:
-      - master
+      - release
     tags:
       - 'v*'
 
@@ -32,4 +32,4 @@ jobs:
           asset_name: rushHour.gif
           tag: ${{ github.ref }}
           overwrite: true
-          body: "Testing automatic releas"
+          body: "Testing automatic release"
