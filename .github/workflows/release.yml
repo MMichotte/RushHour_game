@@ -28,8 +28,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: dist/Rush-Hour.app
-          asset_name: Rush-Hour.app
+          file: img/rushHour.gif
+          asset_name: rushHour.gif
           tag: ${{ github.ref }}
           overwrite: true
           body: "Testing automatic releas"
