@@ -19,6 +19,7 @@ jobs:
             asset_name: RushHour-windows-amd64
             venv: python -m venv venv
             Avenv: venv/Scripts/activate
+            compiler: py2exe
             compile: python WIN_setup.py py2exe
 
           - os: macos-latest
@@ -27,6 +28,7 @@ jobs:
             asset_name: RushHour-macos-amd64
             venv: python3 -m venv venv
             Avenv: source venv/bin/activate
+            compiler: py2app
             compile: python3 OSX_setup.py py2app
 
     steps:
@@ -40,6 +42,7 @@ jobs:
         run: |
           pip3 install --upgrade pip
           pip3 install -r requirements.txt
+          pip3 install ${{ matrix.compiler }}
       - name: build
         run: ${{ matrix.compile }}
       - name: zip 
