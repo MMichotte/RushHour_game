@@ -2,10 +2,9 @@
 
 A quickly made **Rush Hour 🚗** game in `python` to present the general idea and implementation of a `MVC` architecture. 
 
-![game](img/rushHour.gif)
+<a href="https://github.com/MMichotte/RushHour_game/releases">Download here ! 🚀 </a>
 
-## Downloads 
-- <a href="release/RushHour.zip" download>OSX</a>
+![game](img/rushHour.gif)
 
 ## ToDo 
 - **Basic MVC architecture setup**
@@ -27,8 +26,8 @@ A quickly made **Rush Hour 🚗** game in `python` to present the general idea a
   - [X] Save score 
   - [ ] Load user (check for unicity)
   - [ ] Add a few more levels
-- **Create executables**
+- **Release**
   - [X] OsX 
-  - [ ] Windows
+  - [ ] Windows (currently not working)
 
 > total hours spent : ±20h 
