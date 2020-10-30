@@ -16,7 +16,7 @@ jobs:
           - os: windows-latest
             file_name: Rush-Hour.exe
             artifact_name: RushHour.zip
-            asset_name: RushHour-windows-amd64
+            asset_name: RushHour-windows-amd64.zip
             venv: python -m venv venv
             Avenv: venv/Scripts/activate
             compiler: py2exe
@@ -26,7 +26,7 @@ jobs:
           - os: macos-latest
             file_name: Rush-Hour.app
             artifact_name: RushHour.zip
-            asset_name: RushHour-macos-amd64
+            asset_name: RushHour-macos-amd64.zip
             venv: python3 -m venv venv
             Avenv: source venv/bin/activate
             compiler: py2app
