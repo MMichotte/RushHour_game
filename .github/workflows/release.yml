@@ -19,7 +19,7 @@ jobs:
             asset_name: RushHour-windows-amd64
             venv: python -m venv venv
             Avenv: venv/Scripts/activate
-            compile: python3 WIN_setup.py py2exe
+            compile: python WIN_setup.py py2exe
 
           - os: macos-latest
             file_name: Rush-Hour.app
