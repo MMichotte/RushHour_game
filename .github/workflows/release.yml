@@ -1,8 +1,8 @@
+# source: https://github.com/marketplace/actions/upload-files-to-a-github-release
+
 name: release
 on: 
   push:
-    branches:
-      - release
     tags:
       - 'v*'
 
@@ -20,7 +20,7 @@ jobs:
             venv: python -m venv venv
             Avenv: venv/Scripts/activate
             compiler: py2exe
-            compile: python WIN_setup.py py2exe
+            compile: python setup/WIN_setup.py py2exe
             compress: tar.exe -cf RushHour.zip 
 
           - os: macos-latest
@@ -30,7 +30,7 @@ jobs:
             venv: python3 -m venv venv
             Avenv: source venv/bin/activate
             compiler: py2app
-            compile: python3 OSX_setup.py py2app
+            compile: python3 setup/OSX_setup.py py2app
             compress: zip -r RushHour.zip 
 
     steps:
