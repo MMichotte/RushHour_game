@@ -1,0 +1,23 @@
+name: release
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: 'macos-latest'
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: create venv & activate
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+      - name: install packagaes
+        run: |
+          pip3 install --upgrade pip
+          pip3 install -r requirements.txt
+      - name: build
+        run: python3 setup.py py2app  
