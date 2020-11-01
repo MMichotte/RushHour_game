@@ -1,11 +1,11 @@
-#from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.scheduler import Scheduler
+from apscheduler.schedulers.background import BackgroundScheduler
+#from apscheduler.scheduler import Scheduler
 import model.user
 
 class Timer:
     def __init__(self, fieldCanvas, field):
-        #self.sched = BackgroundScheduler()
-        self.sched = Scheduler()
+        self.sched = BackgroundScheduler()
+        #self.sched = Scheduler()
         self.sched.start()
         self.timerValue = 0
         self.fieldCanvas = fieldCanvas
@@ -23,8 +23,8 @@ class Timer:
         return self.timerValue
 
     def startTimer(self):
-        #job = self.sched.add_job(self.updateTimerValue, 'interval', seconds = 1)
-        job = self.sched.add_interval_job(self.updateTimerValue, seconds = 1)
+        job = self.sched.add_job(self.updateTimerValue, 'interval', seconds = 1)
+        #job = self.sched.add_interval_job(self.updateTimerValue, seconds = 1)
         pass
         
     def stopTimer(self):
